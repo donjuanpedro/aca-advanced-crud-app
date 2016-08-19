@@ -14,9 +14,11 @@
 
   <ul>
       <% for (idx in posts) { %>
-      <li><%= posts[idx]['author'] %><%= posts[idx]['body'] %><%= posts[idx]['date'] %></li>
+      <ul>By <%= posts[idx]['author'] %></ul>
+      <li><%= posts[idx]['body'] %></li>
+      <li><%= posts[idx]['date'] %></li>
       <% } %>
-    </ul>
+  </ul>
 
 </body>
 </html>

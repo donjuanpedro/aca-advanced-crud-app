@@ -26,12 +26,14 @@ app.use(express.static('public'));
 
 // Registering a simple route to redirect to '/posts'
 app.get('/', (req, res, next) => {
-  res.redirect('/posts');
+  res.redirect('/post_form');
 });
 
 // Register our routes
 // TODO: Register our `posts` routes name-spaced under '/posts'
 app.use('/posts', posts);
+app.use('/post_form', posts);
+app.use('/post', posts);
 const server = http.createServer(app);
 const port = 3000;
 
