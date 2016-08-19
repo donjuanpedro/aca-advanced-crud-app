@@ -8,14 +8,14 @@ const posts = require('./routes/posts');
 // Set up database
 const mongoose = require('mongoose');
 // TODO: You need to write the line to connect to the mongo database
-
+mongoose.connect('mongodb://localhost/grocery-list');
 // Create our instance of our app
 const app = express();
 
 // Add middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 // TODO: Add a comment here explaining, briefly, what bodyParser is doing to our request
-
+//Allows us to access inputs on the 'req' object under the 'body' attribute.
 // Set our views directory
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -30,7 +30,6 @@ app.get('/', (req, res, next) => {
 
 // Register our routes
 // TODO: Register our `posts` routes name-spaced under '/posts'
-
 const port = 3000;
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
