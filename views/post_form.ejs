@@ -2,17 +2,19 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Grocery List</title>
+        <title>BlogPost Form</title>
     </head>
 <body>
-  <form action="/items" method="POST">
-      <input type="text" name="post">
+  <form action="/posts" method="POST">
+      <input type="text" name="author">
+      <input type="text" name="body">
+      <input type="text" name="date">
       <input type="submit" value="+ Add Post">
   </form>
 
   <ul>
       <% for (idx in posts) { %>
-      <li><%= posts[idx]['text'] %></li>
+      <li><%= posts[idx]['author'] %><%= posts[idx]['body'] %><%= posts[idx]['date'] %></li>
       <% } %>
     </ul>
 

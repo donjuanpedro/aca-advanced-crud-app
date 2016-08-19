@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>BlogPost Project</title>
+    </head>
+<body>
+
+  <ul>
+      <% for (idx in posts) { %>
+      <li><%= posts[idx]['author'] %><%= posts[idx]['body'] %><%= posts[idx]['date'] %></li>
+      <% } %>
+    </ul>
+
+</body>
+</html>

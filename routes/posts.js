@@ -7,14 +7,15 @@ const PostModel = require('../models/PostModel.js')
 // Hint: Don't for get to export it!
 router.get('/', function(req, res, next) {
   PostModel.find((err, posts) => {
-    res.render('index.ejs', { posts });
+    res.render('post_form.ejs', { posts });
   });
 });
 
 router.post('/', function(req, res, next) {
-  console.log(req.body);
   const post = new PostModel({
-    post: post
+    author: req.body.author,
+    body: req.body.body,
+    date: req.body.date
   });
   post.save((err, post) => {
     res.redirect('/');

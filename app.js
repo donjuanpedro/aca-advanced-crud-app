@@ -1,3 +1,4 @@
+const http = require('http');
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
@@ -30,7 +31,10 @@ app.get('/', (req, res, next) => {
 
 // Register our routes
 // TODO: Register our `posts` routes name-spaced under '/posts'
+app.use('/posts', posts);
+const server = http.createServer(app);
 const port = 3000;
-app.listen(port, () => {
+
+server.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
