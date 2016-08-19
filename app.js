@@ -26,7 +26,7 @@ app.use(express.static('public'));
 
 // Registering a simple route to redirect to '/posts'
 app.get('/', (req, res, next) => {
-  res.redirect('/post_form');
+  res.redirect('/posts');
 });
 
 // Register our routes
