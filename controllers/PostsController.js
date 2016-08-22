@@ -32,7 +32,7 @@ module.exports = {
   update: function (req, res) {
     var id = req.params.id;
     PostModel.findOne({_id: id}, function (err, post) {
-      post.body = req.body.text;
+      post.body = req.body.body;
 
       post.save(function (err, post) {
         return res.json(post);

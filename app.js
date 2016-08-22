@@ -31,9 +31,9 @@ app.get('/', (req, res, next) => {
 
 // Register our routes
 // TODO: Register our `posts` routes name-spaced under '/posts'
-app.use('/post_form', posts);
-app.use('/post', posts);
 app.use('/posts', posts);
+app.use('/post_form', posts);
+app.use('/post_view', posts);
 const server = http.createServer(app);
 const port = 3000;
 
