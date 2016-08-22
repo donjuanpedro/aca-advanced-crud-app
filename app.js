@@ -9,7 +9,7 @@ const posts = require('./routes/posts');
 // Set up database
 const mongoose = require('mongoose');
 // TODO: You need to write the line to connect to the mongo database
-mongoose.connect('mongodb://localhost/grocery-list');
+mongoose.connect('mongodb://localhost/aca-advanced-crud-app');
 // Create our instance of our app
 const app = express();
 
@@ -31,9 +31,9 @@ app.get('/', (req, res, next) => {
 
 // Register our routes
 // TODO: Register our `posts` routes name-spaced under '/posts'
-app.use('/posts', posts);
 app.use('/post_form', posts);
 app.use('/post', posts);
+app.use('/posts', posts);
 const server = http.createServer(app);
 const port = 3000;
 

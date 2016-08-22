@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -11,25 +11,85 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
         integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
+        <!-- My Style -->
+        <link rel="stylesheet" href="../aca-advanced-crud-app/public/css/app" type="text/css">
+
         <!-- Latest compiled and minified JavaScript -->
+
+        <script src="https://code.jquery.com/jquery-3.1.0.min.js"
+        integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
     </head>
 <body>
-  <form action="/posts" method="POST">
-      <input type="text" name="author">
-      <input type="text" name="body">
-      <input type="text" name="date">
-      <input type="submit" value="+ Add Post">
-  </form>
-
-  <ul>
-      <% for (idx in posts) { %>
-      <ul>By <%= posts[idx]['author'] %></ul>
-      <li><%= posts[idx]['body'] %></li>
-      <li><%= posts[idx]['date'] %></li>
-      <% } %>
+  <nav class="navbar navbar-light bg-faded">
+  <a class="navbar-brand" href="#">Blog</a>
+  <ul class="nav navbar-nav">
+    <li class="nav-item active">
+      <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">New Posts</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Old Posts</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Contact</a>
+    </li>
   </ul>
+</nav>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  Write New Post
+</button>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel">New Post</h4>
+      </div>
+      <form class="form-inline" action="/posts" method="POST">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-xs-12 form-group text-left" id="authorLetters">
+              <input type="text" class="form-control" name="author" id="author" placeholder="Enter Author">
+            </div>
+            <div class="col-xs-12 form-group text-left" id="bodyLetters">
+              <textarea type="text" class="form-control" name="body" rows="6" id="body" placeholder="Enter Body"></textarea>
+            </div>
+            <div class="col-xs-12 form-group text-left" id="dateLetters">
+              <input type="text" class="form-control" name="date" id="date" placeholder="Enter Date">
+            </div>
+            <div class="col-xs-12">
+              <button type="submit" class="btn btn-default">Submit</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12" id="postItems">
+      <ul>
+        <% for (idx in posts) { %>
+          <h4>By <%= posts[idx]['author'] %></h4>
+            <li><%= posts[idx]['body'] %></li>
+            <li><%= posts[idx]['date'] %></li>
+            <% } %>
+        </ul>
+      </div>
+    </div>
+</div>
 
 </body>
 </html>
