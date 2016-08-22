@@ -1,25 +1,20 @@
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
-const PostModel = require('../models/PostModel.js')
-
+const PostModel = require('../models/PostModel.js');
+const PostsController = require('../controllers/PostsController.js');
 // TODO: Add your routes to the route here.
-// Hint: Don't for get to export it!
-router.get('/', function(req, res, next) {
-  PostModel.find((err, posts) => {
-    res.render('posts.ejs', { posts });
-  });
-});
 
-router.post('/', function(req, res, next) {
-  const post = new PostModel({
-    author: req.body.author,
-    body: req.body.body,
-    date: req.body.date
-  });
-  post.save((err, post) => {
-    res.redirect('/');
-  });
-});
+router.get('/', PostsController.list);
+
+router.get('/:id', PostsController.show);
+
+router.post('/', PostsController.create);
+
+router.put('/:id', PostsController.update);
+
+router.delete('/:id', PostsController.remove);
+
+
 
 module.exports = router;

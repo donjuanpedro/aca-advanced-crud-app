@@ -22,6 +22,8 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
+        <script src="../aca-advanced-crud-app/public/js/index.js"></script>
+
     </head>
 <body>
   <nav class="navbar navbar-light bg-faded">
@@ -31,10 +33,7 @@
       <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">New Posts</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Old Posts</a>
+      <a class="nav-link" href="../post_form">New Posts</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="#">Contact</a>
@@ -83,7 +82,7 @@
       <ul>
         <% for (idx in posts) { %>
           <h4>By <%= posts[idx]['author'] %></h4>
-            <li><%= posts[idx]['body'].substring(0,100) %> ...</li>
+            <li><%= posts[idx]['body'] %></li>
             <li><%= posts[idx]['date'] %></li>
             <% } %>
         </ul>
