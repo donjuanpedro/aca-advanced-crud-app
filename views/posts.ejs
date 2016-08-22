@@ -12,7 +12,7 @@
         integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
         <!-- My Style -->
-        <link rel="stylesheet" href="../aca-advanced-crud-app/public/css/app" type="text/css">
+        <link rel="stylesheet" href="../public/css/app.css" type="text/css">
 
         <!-- Latest compiled and minified JavaScript -->
 
@@ -42,9 +42,15 @@
   </nav>
 
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
   Write New Post
-</button>
+      </button>
+    </div>
+  </div>
+</div>
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -82,8 +88,11 @@
       <ul>
         <% for (idx in posts) { %>
           <h4>By <%= posts[idx]['author'] %></h4>
-            <li><%= posts[idx]['body'] %><a href="#">Edit</a> <a href="#">View</a></li>
-            <li><%= posts[idx]['date'] %></li>
+            <ul style="list-style: none; border: 1px solid black; border-radius: 10px; padding: 10px;">
+              <li><%= posts[idx]['body'].substring(0,300) %> ...<br>
+              <a href="#">Edit</a> <a href="#">View</a></li>
+              <li><%= posts[idx]['date'] %></li>
+            </ul>
             <% } %>
         </ul>
       </div>
