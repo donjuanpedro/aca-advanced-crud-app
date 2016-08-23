@@ -18,10 +18,10 @@
 <body>
 
   <ul>
-      <% for (_id in posts) { %>
-      <ul>By <%= posts[idx]['author'] %></ul>
-      <li><%= posts[idx]['body'] %></li>
-      <li><%= posts[idx]['date'] %></li>
+      <% for (_id in postSingle) { %>
+      <ul>By <%= postSingle[_id]['author'] %></ul>
+      <li><%= postSingle[_id]['body'] %></li>
+      <li><%= postSingle[_id]['date'] %></li>
       <% } %>
   </ul>
 

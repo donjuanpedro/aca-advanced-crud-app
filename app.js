@@ -5,6 +5,8 @@ const bodyParser = require('body-parser');
 
 // Require Routes
 const posts = require('./routes/posts');
+const postForm = require('./routes/post_form');
+const postSingle = require('./routes/post_view');
 
 // Set up database
 const mongoose = require('mongoose');
@@ -32,8 +34,8 @@ app.get('/', (req, res, next) => {
 // Register our routes
 // TODO: Register our `posts` routes name-spaced under '/posts'
 app.use('/posts', posts);
-app.use('/post_form', posts);
-app.use('/post_view', posts);
+app.use('/post_form', postForm);
+app.use('/post_view', postSingle);
 const server = http.createServer(app);
 const port = 3000;
 
