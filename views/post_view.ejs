@@ -31,12 +31,6 @@
     <li class="nav-item active">
       <a class="nav-link" href="../posts">Home</a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link" href="../post_form">New Posts <span class="sr-only">(current)</span></a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="../post_view">View It All</a>
-    </li>
   </ul>
   </nav>
 
@@ -86,13 +80,11 @@
   <div class="row">
     <div class="col-xs-12" id="postItems">
       <ul>
-        <% for (idx in postSingle) { %>
-          <h4>By <%= postSingle[idx]['author'] %></h4>
+          <h4>By <%= post['author'] %></h4>
             <ul style="list-style: none; border: 1px solid black; border-radius: 10px; padding: 10px;">
-              <li><%= postSingle[idx]['body'] %><br>
-              <li><%= postSingle[idx]['date'] %></li>
+              <li><%= post['body'] %><br>
+              <li><%= post['date'] %></li>
             </ul>
-            <% } %>
         </ul>
       </div>
     </div>

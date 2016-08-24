@@ -4,7 +4,7 @@ var PostModel = require('../models/PostModel.js');
 module.exports = {
   list: function (req, res) {
     PostModel.find(function (err, posts) {
-      res.render('posts.ejs', { posts });
+      res.render('posts', { posts });
     });
   },
 
@@ -12,7 +12,15 @@ module.exports = {
   show: function (req, res) {
     var id = req.params.id;
     PostModel.findOne({_id: id}, function (err, post) {
-      return res.json(post);
+      return res.render('post_view', {post: post});
+    });
+  },
+
+
+  edit: function (req, res) {
+    var id = req.params.id;
+    PostModel.findOne({_id: id}, function (err, post) {
+      return res.render('post_edit', {post: post});
     });
   },
 
@@ -35,7 +43,7 @@ module.exports = {
       post.body = req.body.body;
 
       post.save(function (err, post) {
-        return res.json(post);
+        res.redirect('/posts');
       });
     });
   },
