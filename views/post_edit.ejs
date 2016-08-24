@@ -31,14 +31,9 @@
     <li class="nav-item active">
       <a class="nav-link" href="/">Home</a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link" href="../post_form">New Posts <span class="sr-only">(current)</span></a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="../post_view">View It All</a>
-    </li>
   </ul>
   </nav>
+
 
 <form class="form-inline" action="/posts/<%=post['_id']%>?_method=PUT" method="POST">
   <div class="container-fluid">
@@ -58,6 +53,8 @@
     </div>
   </div>
 </form>
+
+<button action="/posts/<%=post['_id']%>?_method=PUT" method="POST" type="submit" class="btn btn-default"><a href="/posts/<%=post.remove%>"> Delete</a> </button>
 
 </body>
 </html>
