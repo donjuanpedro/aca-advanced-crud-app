@@ -41,7 +41,9 @@ module.exports = {
     var id = req.params.id;
     PostModel.findOne({_id: id}, function (err, post) {
       post.body = req.body.body;
-
+      post.author = req.body.author;
+      post.date = req.body.date;
+      
       post.save(function (err, post) {
         res.redirect('/posts');
       });
@@ -52,7 +54,7 @@ module.exports = {
   remove: function (req, res) {
     var id = req.params.id;
     PostModel.findByIdAndRemove(id, function (err, post) {
-      return res.json(post);
+      res.redirect('/posts');
     });
   }
 };
